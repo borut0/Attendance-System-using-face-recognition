@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            /* height: 100vh; */
+        }
+        table{
+            margin-top: 1%;
+            border: 1px solid black;
+            font-size: 33px;
+        }
+        h1{
+            border-bottom: 3px solid black;
+            display: inline;
+        }
+        a{
+            color: white;
+            background-color: black;
+            padding: 7px;
+            text-decoration: none;
+            border: 1px solid black; 
+            transition: 0.5s;
+            opacity: 0.7;
+            display: block;
+            margin-top: 1%;
+            position: sticky;
+            top: 0;
+        }
+        a:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Attandance Table</h1>
+    <a href="{{ url_for('index') }}">Back to Monitoring</a>
+    <table>
+        <h1>
+            {% for table in tables %}
+            <h2>
+                {{titles[loop.index]}}
+            </h2>
+            {{table | safe}}
+            {% endfor %}
+        </h1>
+    </table>
+   
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .json_con{
+            height: 40%;
+            overflow-y: auto;
+        }
+        body{
+            overflow: hidden;
+        }
+        
+    </style>
+</head>
+<body >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <!-- <form action="" method="post" enctype="multipart/form-data">
+                    <h3>Enrollment No:</h3>
+                    <input type="number" name="en" id="" required>
+                    <h3>Name : </h3>
+                    <input type="text" name="nm" id="" required>
+                    <h3>Photo</h3>
+                    <input type="file" name="image" id="" accept="image/jpg,image/png,image/jpeg" required>
+                    <input type="submit" value="submit">
+                </form> -->
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label>Enrollment No:</label>
+                      <input type="number" class="form-control" name="en" placeholder="Enter enrollment no" required> 
+                    </div>
+                    <div class="form-group">
+                      <label>Name : </label>
+                      <input type="text" class="form-control" name="nm" placeholder="Enter student's Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Student's Photo : </label>
+                        <input type="file" name="image" id="" accept="image/jpg,image/png,image/jpeg" required>
+                    </div>
+                    <input type="submit" value="submit">
+                  </form>
+            </div>
+            <div class="col-6 json_parent">
+                <h1>Data base</h1>
+                <div class="json_con">
+                   {{jsonfile | tojson}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const jsonfile = JSON.parse({{jsonfile|tojson}});
+        document.querySelector(".json_con").innerHTML = jsonfile;
+
+        document.addEventListener('DOMContentLoaded',()=>{
+            name = prompt('Enter user name')
+            if(name == 'admin'){
+                pswd = prompt('Enter password');
+                if(pswd == 'admin'){
+                    alert('Welcome')
+                }
+                else{
+                    setInterval(()=>{
+                        alert('sorry your not valid user')
+                    })
+                }
+            }
+            else{
+                    setInterval(()=>{
+                        alert('sorry your not valid user')
+                    })
+            }
+        });
+    </script>
+</body>
+</html>
